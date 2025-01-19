@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        
+        @font-face {
+            font-family: a-love-of-thunder;
+            
+            src: url(./font.ttf);
+        }
+   /* Cấu hình cho .hero */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Chiều cao của hero chiếm toàn bộ chiều cao cửa sổ */
+    overflow: hidden; /* Ẩn phần tràn của Swiper */
+  }
+  
+  .swiper-container {
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Cấu hình cho .swiper-slide */
+  .swiper-slide {
+    background-size: cover; /* Làm cho ảnh phủ đầy toàn bộ slide */
+    background-position: center; /* Căn chỉnh hình nền ở giữa */
+    width: 100%;
+    height: 100%;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* Hiệu ứng mờ dần và thu nhỏ */
+    opacity: 0; /* Ảnh mặc định sẽ mờ đi */
+    transform: scale(1.05); /* Thu phóng nhẹ ảnh khi không phải là slide hiện tại */
+  }
+  
+  /* Cấu hình hiệu ứng mờ dần cho slide đang hiển thị */
+  .swiper-slide-active {
+    opacity: 1; /* Ảnh hiện tại sẽ hiển thị rõ */
+    transform: scale(1); /* Thu nhỏ ảnh khi nó trở thành slide đang hiển thị */
+  }
+  
+  /* Căn giữa chữ (tiêu đề và mô tả) */
+  .hero .text-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white; /* Màu chữ trắng cho dễ nhìn */
+    text-align: center;
+    z-index: 10; /* Đảm bảo chữ không bị che khuất bởi hình nền */
+  }
+  
+  .hero .text-center h1 {
+    font-size: 3.5rem; /* Điều chỉnh kích thước tiêu đề */
+    font-weight: bold;
+    margin: 0;
+    opacity: 0; /* Tiêu đề ban đầu sẽ mờ đi */
+    transition: opacity 1s ease-in-out; /* Hiệu ứng mờ dần cho tiêu đề */
+  }
+  
+  .hero .text-center p {
+    font-size: 1.8rem; /* Điều chỉnh kích thước mô tả */
+    margin: 10px 0;
+    opacity: 0; /* Mô tả ban đầu cũng mờ đi */
+    transition: opacity 1.5s ease-in-out 0.5s; /* Hiệu ứng mờ dần cho mô tả với độ trễ */
+  }
+  
+  /* Hiệu ứng khi slide đang active */
+  .swiper-slide-active .text-center h1,
+  .swiper-slide-active .text-center p {
+    opacity: 1; /* Khi slide active, tiêu đề và mô tả sẽ rõ ràng */
+  }
+  
+      
+        .section-title {
+
+            margin-bottom: 2rem;
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #495057;
+            padding-top: 20px;
+        }
+        .timeline {
+            position: relative;
+            padding: 1rem 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background-color: #dee2e6;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+         .timeline-content {
+            position: relative;
+            padding: 1rem;
+            color: white;
+            font-family: sans-serif;
+            font-size: 35px !important;
+           
+        }
+        .timeline-left-content{
+            padding: 50px;
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        .rsvp {
+            background-color: #e9ecef;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .qr-section {
+            text-align: center;
+            margin-top: 3rem;
+        }
+        .qr-section img {
+            max-width: 150px;
+            margin: 10px;
+        }
+        .map {
+            width: 100%;
+            height: 300px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .text-center {
+            z-index: 2;
+            position: relative;
+            animation: depth-effect 3s ease-in-out infinite;
+        }
+        .swiper-container {
+            width: 100% !important;
+            height: 100% !important;
+        }
+        .title{
+            font-size: 40px;
+        }
+        .name{
+            font-size: 55px;
+        }
+        .tilte-nam{
+            text-align: end;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            position: relative;
+            padding-right: 50px;
+        }
+        .des-nam{
+            width: 50%;
+            display: flex;
+            justify-content: end;
+            float: inline-end;
+        }
+        .tilte-nu{
+            text-align: start;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            position: relative;
+            padding-left: 50px;
+        }
+        .des-nu{
+            width: 50%;
+            display: flex;
+            float: inline-start;
+        }
+        .info img {
+            border: 10px solid white; /* Đặt viền dày 5px và màu đen */
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+        .info{
+            width: 100%;
+            display: flex;
+            margin-right:0px !important;
+            margin-left: 0px !important;
+
+        }
+        .timeline-back{
+            background: url(./img/anhnento.webp);
+            width: 100%;
+        }
+        .image-container {
+            width: 358px; /* Chiều rộng khung */
+            height: 358px; /* Chiều cao khung */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+      
+          .image-container img {
+            width: 358px;
+            height: 100%; /* Đảm bảo ảnh phủ hết chiều cao khung */
+            object-fit: cover; /* Đảm bảo ảnh "fit" mà không bị méo */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Đổ bóng */
+            border-top-left-radius: 50px;
+            border-top-right-radius: 50px;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            border: 10px solid white;
+          }
+          .is-divider{
+            max-width: 30000000000000px;
+            height: 1px;
+            background-color: rgb(255, 255, 255);
+            position: absolute;
+            bottom: -30px;
+            width: 50%;
+            /* z-index: 2; */
+            right: 50px;
+          }
+          .is-divider-left{
+            max-width: 30000000000000px;
+            height: 1px;
+            background-color: rgb(255, 255, 255);
+            position: absolute;
+            bottom: -30px;
+            width: 50%;
+            /* z-index: 2; */
+            left: 50px;
+          }
+          @media (max-width: 768px) {
+            .info {
+              flex-direction: column; /* Sắp xếp khối theo chiều dọc */
+            }
+          
+            .block {
+              order: unset; /* Đặt lại thứ tự mặc định */
+              margin-bottom: 20px; /* Thêm khoảng cách giữa các khối */
+            }
+          
+            .block:first-child {
+              order: 2; /* Chú rể text */
+            }
+          
+            .block:nth-child(2) {
+              order: 1; /* Ảnh chú rể */
+            }
+          
+            .block:nth-child(3) {
+              order: 3; /* Ảnh cô dâu */
+            }
+          
+            .block:last-child {
+              order: 4; /* Cô dâu text */
+            }
+            .des-nam{
+                width: 100%;
+            }
+            .des-nu{
+                width: 100%;
+            }
+            .tilte{
+                font-size: 48px;
+            }
+            .tilte-nam{
+                padding-right: 0px;
+                text-align:start
+            }
+            .tilte-nu{
+                padding-left: 0px;
+            }
+            .is-divider{
+                right: 0;
+                width: 100%;
+
+            }
+            .is-divider-left{
+                left: 0;
+                width: 100%;
+            }
+            .block-nu{
+                margin-top: 50px;
+            }
+          
+          }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+</head>
+<body>
+    <div class="hero">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" style="background-image: url('./img/anhnen.jpg');"></div>
+                <div class="swiper-slide" style="background-image: url('./img/anhnen2.jpg');"></div>
+                <div class="swiper-slide" style="background-image: url('./img/anhnen.jpg');"></div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <div class="text-center">
+            <h1 class="animate__animated animate__fadeInDown">Welcome to Our Wedding</h1>
+            <p class="animate__animated animate__fadeInUp">Join us on our special day</p>
+        </div>
+    </div>
+
+        <div class="row info"  data-aos="fade-up" style="background-color: #A00826;padding: 40px; margin-top: -60px;
+        position: relative;
+        z-index: 10;" >
+            <div class="col-md-4 block col-12"  style="display: flex; align-items: center;">
+                <div class="tilte-nam  text-stroke-white" >
+                    <h5 class="title"><span>Chú rể</span></h5>
+                    <h3 class="name"><span>Hoàng Duy</span></h3>
+                    <span class="des-nam">Đối với chúng mình hôn nhân không phải là đích đến cuối của tình yêu mà là khởi đầu của hạnh phúc.&nbsp;</span>
+                    <div class="is-divider divider clearfix" style="max-width:30000000000000px;height:1px;background-color:rgb(255, 255, 255);"></div> 
+                </div>
+              
+            </div>
+            <div class="col-md-2  col-12 block"  data-aos="fade-right">
+                <img src="./img/anhdoc.jpg" style="width:100%"/>
+            </div>
+            <div class="col-md-2 col-12 block block-nu" >
+                <img src="./img/anhdoc.jpg" style="width:100%"  data-aos="fade-left"/>
+            </div>
+            <div class="col-md-4 col-12 block "  style="display: flex; align-items: center;">
+                <div class="tilte-nu  text-stroke-white">
+                    <h5 class="title"><span>Cô dâu</span></h5>
+                    <h3 class="name"><span>Minh Hằng</span></h3>
+                    <span class="des-nu">Đối với chúng mình hôn nhân không phải là đích đến cuối của tình yêu mà là khởi đầu của hạnh phúc.&nbsp;</span>
+                    <div class="is-divider-left divider clearfix" style="max-width:30000000000000px;height:1px;background-color:rgb(255, 255, 255);"></div> 
+                </div>
+            </div>
+            
+    
+        </div>
+
+
+    <div class="timeline-back">
+        <section id="timeline" class="container" >
+            <h2 class="section-title" >CHUYỆN TÌNH YÊU</h2>
+            <div class="timeline">
+                <div class="row" style="margin-bottom: 40px;">
+                    <div class="col-md-6 col-12 image-container" data-aos="fade-right">
+                        <img src="./img/anhdoc.jpg"  class="rounded-image"/>
+                    </div>
+                    <div class="col-md-6 col-12 timeline-content timeline-left-content" data-aos="fade-left">
+                        <h4>First Meeting</h4>
+                        <p>We met for the first time and sparks flew!</p>
+                    </div>
+
+                </div>
+                <div class="row" style="margin-bottom: 40px;">
+                  
+                    <div class="col-md-6 col-12 timeline-content" data-aos="fade-right">
+                        <h4>First Meeting</h4>
+                        <p>We met for the first time and sparks flew!</p>
+                    </div>
+                    <div class="col-md-6 col-12 image-container " data-aos="fade-left">
+                        <img src="./img/anhdoc.jpg"  class="rounded-image"/>
+                    </div>
+
+                </div>
+                <div class="row" style="margin-bottom: 40px;" >
+                    <div class="col-md-6 col-12 image-container">
+                        <img src="./img/anhdoc.jpg"  class="rounded-image"/>
+                    </div>
+                    <div class="col-md-6 col-12 timeline-content timeline-left-content" >
+                        <h4>First Meeting</h4>
+                        <p>We met for the first time and sparks flew!</p>
+                    </div>
+
+                </div>
+                <div class="row" style="margin-bottom: 40px;" >
+                 
+                    <div class="col-md-6 col-12 timeline-content">
+                        <h4>First Meeting</h4>
+                        <p>We met for the first time and sparks flew!</p>
+                    </div>
+                    <div class="col-md-6 col-12 image-container" >
+                        <img src="./img/anhdoc.jpg" class="rounded-image"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+    </div>
+  
+    <!-- <section id="map" class="container mt-5">
+        <h2 class="section-title">Venue Directions</h2>
+        <div>
+            <h5>House of the Groom</h5>
+            <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.8354345097515!2d144.95565101568054!3d-37.81731417975157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0x5045675218ce7e33!2sGroom%27s%20House!5e0!3m2!1sen!2s!4v1600871758580!5m2!1sen!2s" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div>
+            <h5>House of the Bride</h5>
+            <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.8354345097515!2d144.95565101568054!3d-37.81731417975157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0x5045675218ce7e33!2sBride%27s%20House!5e0!3m2!1sen!2s!4v1600871758580!5m2!1sen!2s" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section> -->
+    <div id="audio-container">
+        <!-- Audio element that automatically plays and loops the specified audio file -->
+        <audio id="song" autoplay loop>
+          <source src="audio/be-mine.mp4" type="audio/mp3" />
+        </audio>
+        <div class="audio-icon-wrapper" style="display: none">
+          <i class="bi bi-disc"></i>
+        </div>
+      </div>
+    <section id="qr" class="qr-section">
+        <h2 class="section-title">Scan QR Codes</h2>
+        <p>Scan the QR code below to view details:</p>
+        <img src="https://via.placeholder.com/150?text=Groom+QR" alt="QR Code for Groom">
+        <img src="https://via.placeholder.com/150?text=Bride+QR" alt="QR Code for Bride">
+    </section>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init();
+            const swiper = new Swiper('.swiper-container', {
+                slidesPerView: 1, // Chỉ hiển thị một slide tại một thời điểm
+                spaceBetween: 0, // Không có khoảng cách giữa các slide
+                parallax: true, // Bật hiệu ứng parallax
+                loop: true, // Tạo vòng lặp cho slider
+                effect: 'fade', // Hiệu ứng chuyển đổi fade giữa các slide
+                autoplay: {
+                  delay: 2000, // Tự động chuyển slide sau mỗi 6 giây (tăng thời gian hiển thị slide)
+                  disableOnInteraction: false, // Đảm bảo autoplay không bị dừng khi người dùng tương tác
+                },
+                speed: 1000, // Thời gian chuyển đổi giữa các slide (1 giây)
+                //pagination: {
+                  //el: '.swiper-pagination',
+                  //clickable: true,
+                //},
+              });
+              
+          });
+          function playAudio() {
+            song.volume = 0.1; // Set the audio volume to 10%
+            audioIconWrapper.style.display = "flex"; // Show the audio icon wrapper
+            song.play(); // Start playing the audio
+            isPlaying = true; // Update the state to indicate audio is playing
+          }
+    
+          // Toggle audio playback when the audio icon is clicked
+          audioIconWrapper.onclick = function () {
+            if (isPlaying) {
+              song.pause(); // Pause the audio if it is playing
+              audioIcon.classList.remove("bi-disc"); // Remove disc icon
+              audioIcon.classList.add("bi-pause-circle"); // Show pause icon
+            } else {
+              song.play(); // Play the audio if it is paused
+              audioIcon.classList.add("bi-disc"); // Show disc icon
+              audioIcon.classList.remove("bi-pause-circle"); // Remove pause icon
+            }
+    
+            isPlaying = !isPlaying; // Toggle the playing state
+          };
+          function enableScroll() {
+            window.onscroll = function () {}; // Unlock scrolling
+            rootElement.style.scrollBehavior = "smooth"; // Re-enable smooth scrolling
+            playAudio(); // Start playing the audio when scrolling is enabled
+          }
+    </script>
+</body>
+</html>
