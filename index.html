@@ -11,15 +11,19 @@
     
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family:'Peristiwa';
             background-color: #f8f9fa;
             color: #343a40;
         }
         
         @font-face {
-            font-family: a-love-of-thunder;
-            
-            src: url(./font.ttf);
+            font-family: 'Peristiwa';
+            src: url('./SVN-Peristiwa/SVN-Peristiwa.woff2') format('woff2'),
+                 url('./SVN-Peristiwa/SVN-Peristiwa.woff') format('woff'),
+                 url('./SVN-Peristiwa/SVN-Peristiwa.ttf') format('truetype'),
+                 url('./SVN-Peristiwa/SVN-Peristiwa.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
         }
    /* Cấu hình cho .hero */
 .hero {
@@ -115,7 +119,6 @@
             position: relative;
             padding: 1rem;
             color: white;
-            font-family: sans-serif;
             font-size: 35px !important;
            
         }
@@ -171,7 +174,7 @@
         .tilte-nam{
             text-align: end;
             color: white;
-            font-family: Arial, Helvetica, sans-serif;
+           
             position: relative;
             padding-right: 50px;
         }
@@ -184,7 +187,7 @@
         .tilte-nu{
             text-align: start;
             color: white;
-            font-family: Arial, Helvetica, sans-serif;
+           
             position: relative;
             padding-left: 50px;
         }
@@ -303,7 +306,29 @@
             .block-nu{
                 margin-top: 50px;
             }
-          
+            .timeline-content{
+                width: 100%;
+                padding: 20px;
+                font-size: 15px !important;
+                height: 180px !important;
+            }
+            .image-container img{
+                width: 180px;
+                height: 180px !important;
+            }
+            .image-container{
+                height: 180px !important;
+            }
+            .hero .text-center h1{
+                font-size: 30px;
+                width: 100%;
+            }
+            .hero .text-center{
+                width: 100% !important;
+            }
+            .hero .text-center p{
+                font-size: 20px;
+            }
           }
     </style>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
@@ -319,8 +344,8 @@
             <div class="swiper-pagination"></div>
         </div>
         <div class="text-center">
-            <h1 class="animate__animated animate__fadeInDown">Welcome to Our Wedding</h1>
-            <p class="animate__animated animate__fadeInUp">Join us on our special day</p>
+            <h1 class="animate__animated animate__fadeInDown" style="color: #a00826;">Hoàng Duy & Minh Hằng</h1>
+            <p class="animate__animated animate__fadeInUp">WEEDDING DAY 3-3-2025</p>
         </div>
     </div>
 
@@ -360,10 +385,10 @@
             <h2 class="section-title" >CHUYỆN TÌNH YÊU</h2>
             <div class="timeline">
                 <div class="row" style="margin-bottom: 40px;">
-                    <div class="col-md-6 col-12 image-container" data-aos="fade-right">
+                    <div class="col-6  image-container" data-aos="flip-right">
                         <img src="./img/anhdoc.jpg"  class="rounded-image"/>
                     </div>
-                    <div class="col-md-6 col-12 timeline-content timeline-left-content" data-aos="fade-left">
+                    <div class="col-6  timeline-content timeline-left-content" data-aos="flip-left">
                         <h4>First Meeting</h4>
                         <p>We met for the first time and sparks flew!</p>
                     </div>
@@ -371,20 +396,20 @@
                 </div>
                 <div class="row" style="margin-bottom: 40px;">
                   
-                    <div class="col-md-6 col-12 timeline-content" data-aos="fade-right">
+                    <div class="col-6 timeline-content" data-aos="flip-right">
                         <h4>First Meeting</h4>
                         <p>We met for the first time and sparks flew!</p>
                     </div>
-                    <div class="col-md-6 col-12 image-container " data-aos="fade-left">
+                    <div class="col-6  image-container " data-aos="flip-left">
                         <img src="./img/anhdoc.jpg"  class="rounded-image"/>
                     </div>
 
                 </div>
                 <div class="row" style="margin-bottom: 40px;" >
-                    <div class="col-md-6 col-12 image-container">
+                    <div class="col-6 image-container" data-aos="flip-right">
                         <img src="./img/anhdoc.jpg"  class="rounded-image"/>
                     </div>
-                    <div class="col-md-6 col-12 timeline-content timeline-left-content" >
+                    <div class="col-6 timeline-content timeline-left-content" data-aos="flip-left">
                         <h4>First Meeting</h4>
                         <p>We met for the first time and sparks flew!</p>
                     </div>
@@ -392,11 +417,11 @@
                 </div>
                 <div class="row" style="margin-bottom: 40px;" >
                  
-                    <div class="col-md-6 col-12 timeline-content">
+                    <div class="col-6 timeline-content" data-aos="flip-right">
                         <h4>First Meeting</h4>
                         <p>We met for the first time and sparks flew!</p>
                     </div>
-                    <div class="col-md-6 col-12 image-container" >
+                    <div class="col-6  image-container" data-aos="flip-left" >
                         <img src="./img/anhdoc.jpg" class="rounded-image"/>
                     </div>
                 </div>
