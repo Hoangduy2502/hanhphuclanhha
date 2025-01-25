@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.js"></script>
     
     <style>
         body {
@@ -261,6 +262,64 @@
             color: #da8561;
             font-size: 40px;
           }
+          .event-card {
+            border: 4px solid #A00826;
+            border-radius: 10px;
+            background-color: #fdf2f2;
+            padding: 20px;
+            text-align: center;
+            margin: 10px;
+        }
+        .event-card img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+        }
+        .event-card h3 {
+            color: #A00826;
+            font-weight: bold;
+        }
+        .event-card .date {
+            color: #A00826;
+            font-weight: bold;
+        }
+        .event-card .icons {
+            margin-top: 15px;
+        }
+        .event-card .icons i {
+            font-size: 24px;
+            color: #A00826;
+            margin: 0 10px;
+        }
+        .event-card h3{
+            font-size: 40px;
+        }
+        .event-card p{
+            font-size: 20px;
+        }
+        .event-card img{
+            margin-bottom: 30px;
+        }
+        .nav-link{
+            font-size: 25px;
+        }
+        .nav-tabs{
+            border-bottom:0
+        }
+        .nav-tabs .nav-item .nav-link {
+            border-radius: 50px;
+            background-color: #f5f5f5;
+            color: #A00826;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-tabs .nav-item .nav-link.active {
+            background-color: #A00826;
+            color: #fff;
+            border-radius: 50px;
+        }
+
           @media (max-width: 768px) {
             .info {
               flex-direction: column; /* Sắp xếp khối theo chiều dọc */
@@ -441,6 +500,93 @@
         </section>
     
     </div>
+
+    <div class="container py-5">
+        <h1 class="text-center mb-4" style="color: #A00826; font-size:40px">Sự Kiện Cưới</h1>
+        <p class="text-center mb-4">Vui lòng chọn sự kiện để xem lịch trình chi tiết hôn lễ.</p>
+            <ul class="nav nav-tabs justify-content-center mb-4" id="eventTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="nhatrai-tab" data-bs-toggle="tab" data-bs-target="#nhatrai" type="button" role="tab" aria-controls="nhatrai" aria-selected="true">Nhà Trai</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="nhagai-tab" data-bs-toggle="tab" data-bs-target="#nhagai" type="button" role="tab" aria-controls="nhagai" aria-selected="false">Nhà Gái</button>
+                </li>
+            </ul>
+         
+             <div class="tab-content" id="eventTabsContent">
+                <!-- Nhà Trai Tab -->
+                <div class="tab-pane fade show active" id="nhatrai" role="tabpanel" aria-labelledby="nhatrai-tab">
+                    <div class="row justify-content-center">
+                        <div class="col-md-5">
+                            <div class="event-card">
+                                <img src="./img/anhnen.jpg" alt="Nhà Trai">
+                                <h3>Tiệc Thân Mật Nhà Trai</h3>
+                                <p >Tại Tư Gia Nhà Trai<br>Hoàn Kiếm, Hà Nội</p>
+                                <p class="date">Chủ Nhật, 08/09 Năm 2024<br>Vào Lúc 10:00</p>
+                                <p>Nhằm Ngày 19 Tháng 08 Năm Giáp Thìn</p>
+                                <div class="icons">
+                                    <i class="bi bi-telephone-fill"></i>
+                                    <i class="bi bi-chat-dots-fill"></i>
+                                    <i class="bi bi-geo-alt-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="event-card">
+                                <img src="./img/anhnen.jpg"  alt="Nhà Gái">
+                                <h3>Tiệc Thành Hôn</h3>
+                                <p>Tại White Palace<br>Ba Đình, Hà Nội</p>
+                                <p class="date">Chủ Nhật, 08/09 Năm 2024<br>Vào Lúc 10:00</p>
+                                <p>Nhằm Ngày 19 Tháng 08 Năm Giáp Thìn</p>
+                                <div class="icons">
+                                    <i class="bi bi-telephone-fill"></i>
+                                    <i class="bi bi-chat-dots-fill"></i>
+                                    <i class="bi bi-geo-alt-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Nhà Gái Tab -->
+                <div class="tab-pane fade" id="nhagai" role="tabpanel" aria-labelledby="nhagai-tab">
+                    <div class="row justify-content-center">
+                        <div class="col-md-5">
+                            <div class="event-card">
+                                <img src="./img/anhnen.jpg" alt="Nhà Trai">
+                                <h3>Tiệc Thân Mật Nhà Gái</h3>
+                                <p>Tại Tư Gia Nhà Trai<br>Hoàn Kiếm, Hà Nội</p>
+                                <p class="date">Chủ Nhật, 08/09 Năm 2024<br>Vào Lúc 10:00</p>
+                                <p>Nhằm Ngày 19 Tháng 08 Năm Giáp Thìn</p>
+                                <div class="icons">
+                                    <i class="bi bi-telephone-fill"></i>
+                                    <i class="bi bi-chat-dots-fill"></i>
+                                    <i class="bi bi-geo-alt-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="event-card">
+                                <img src="./img/anhnen.jpg"  alt="Nhà Gái">
+                                <h3>Tiệc Vu Quy</h3>
+                                <p>Tại White Palace<br>Ba Đình, Hà Nội</p>
+                                <p class="date">Chủ Nhật, 08/09 Năm 2024<br>Vào Lúc 10:00</p>
+                                <p>Nhằm Ngày 19 Tháng 08 Năm Giáp Thìn</p>
+                                <div class="icons">
+                                    <i class="bi bi-telephone-fill"></i>
+                                    <i class="bi bi-chat-dots-fill"></i>
+                                    <i class="bi bi-geo-alt-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+       
+    </div>
+
   
     <!-- <section id="map" class="container mt-5">
         <h2 class="section-title">Venue Directions</h2>
