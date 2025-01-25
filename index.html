@@ -125,6 +125,9 @@
         .timeline-left-content{
             padding: 50px;
         }
+        .timeline-right-content{
+            padding: 50px;
+        }
         .gallery img {
             width: 100%;
             height: auto;
@@ -218,8 +221,9 @@
             width: 358px; /* Chiều rộng khung */
             height: 358px; /* Chiều cao khung */
             display: flex;
-            justify-content: center;
-            align-items: center;
+            justify-content: flex-start;
+            padding-left: 50px;
+            padding-right: 50px;
           }
       
           .image-container img {
@@ -252,6 +256,10 @@
             width: 50%;
             /* z-index: 2; */
             left: 50px;
+          }
+          .timeline-content h4{
+            color: #da8561;
+            font-size: 40px;
           }
           @media (max-width: 768px) {
             .info {
@@ -318,6 +326,9 @@
             }
             .image-container{
                 height: 180px !important;
+                padding-left: 0px;
+                padding-right: 0px;
+                justify-content: center;
             }
             .hero .text-center h1{
                 font-size: 30px;
@@ -329,6 +340,7 @@
             .hero .text-center p{
                 font-size: 20px;
             }
+            
           }
     </style>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
@@ -345,7 +357,7 @@
         </div>
         <div class="text-center">
             <h1 class="animate__animated animate__fadeInDown" style="color: #a00826;">Hoàng Duy & Minh Hằng</h1>
-            <p class="animate__animated animate__fadeInUp">WEEDDING DAY 3-3-2025</p>
+            <p class="animate__animated animate__fadeInUp">Weedding day 3-3-2025</p>
         </div>
     </div>
 
@@ -382,7 +394,7 @@
 
     <div class="timeline-back">
         <section id="timeline" class="container" >
-            <h2 class="section-title" >CHUYỆN TÌNH YÊU</h2>
+            <h2 class="section-title" >Chuyện Tình Yêu</h2>
             <div class="timeline">
                 <div class="row" style="margin-bottom: 40px;">
                     <div class="col-6  image-container" data-aos="flip-right">
@@ -396,7 +408,7 @@
                 </div>
                 <div class="row" style="margin-bottom: 40px;">
                   
-                    <div class="col-6 timeline-content" data-aos="flip-right">
+                    <div class="col-6 timeline-content timeline-right-content" data-aos="flip-right">
                         <h4>First Meeting</h4>
                         <p>We met for the first time and sparks flew!</p>
                     </div>
@@ -417,7 +429,7 @@
                 </div>
                 <div class="row" style="margin-bottom: 40px;" >
                  
-                    <div class="col-6 timeline-content" data-aos="flip-right">
+                    <div class="col-6 timeline-content timeline-right-content" data-aos="flip-right">
                         <h4>First Meeting</h4>
                         <p>We met for the first time and sparks flew!</p>
                     </div>
