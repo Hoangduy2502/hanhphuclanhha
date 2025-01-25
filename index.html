@@ -25,6 +25,7 @@
                  url('./SVN-Peristiwa/SVN-Peristiwa.otf') format('opentype');
             font-weight: normal;
             font-style: normal;
+           
         }
    /* Cấu hình cho .hero */
 .hero {
@@ -322,7 +323,7 @@
         #randomImagesContainer .col-md-3 {
             display: flex;
             flex-direction: column;
-            height: 100%; /* Đảm bảo các ảnh trong cột không bị lệch */
+           
         }
         
         #randomImagesContainer img {
@@ -340,7 +341,30 @@
         #randomImagesContainer .row-1img .col-md-12 img {
             height: 400px; /* Ảnh trong row 1 ảnh sẽ có chiều cao là 400px */
         }
-
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('./img/anhdemnguoc.jpg');
+            background-size: cover; /* Đảm bảo ảnh phủ kín khung */
+            background-position: center; /* Căn giữa ảnh */
+            z-index: -1; /* Đặt ảnh ở dưới cùng */
+        }
+        
+        .countdown-item {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 10px;
+            font-size: 2rem;
+            color: white;
+        }
+        .demnguoc{
+            position: relative;
+            height: 500px;
+        }
           @media (max-width: 768px) {
             .info {
               flex-direction: column; /* Sắp xếp khối theo chiều dọc */
@@ -474,7 +498,7 @@
 
     <div class="timeline-back">
         <section id="timeline" class="container" >
-            <h2 class="section-title" >Chuyện Tình Yêu</h2>
+            <h1 class="text-center section-title" style="color: #A00826; font-size:40px">Chuyện Tình Yêu</h1>
             <div class="timeline">
                 <div class="row" style="margin-bottom: 40px;">
                     <div class="col-6  image-container" data-aos="flip-right">
@@ -602,7 +626,6 @@
                                     <i class="bi bi-geo-alt-fill"></i>
                                 </a>
                                     <div>
-                                        <h5>Địa Chỉ</h5>
                                         <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.8354345097515!2d144.95565101568054!3d-37.81731417975157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0x5045675218ce7e33!2sGroom%27s%20House!5e0!3m2!1sen!2s!4v1600871758580!5m2!1sen!2s" allowfullscreen="" loading="lazy"></iframe>
                                     </div>
                                 </div>
@@ -624,7 +647,6 @@
                                     <i class="bi bi-geo-alt-fill"></i>
                                 </a>
                                     <div>
-                                        <h5>Địa Chỉ</h5>
                                         <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.8354345097515!2d144.95565101568054!3d-37.81731417975157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0x5045675218ce7e33!2sGroom%27s%20House!5e0!3m2!1sen!2s!4v1600871758580!5m2!1sen!2s" allowfullscreen="" loading="lazy"></iframe>
                                     </div>
                                 </div>
@@ -638,11 +660,43 @@
        
     </div>
     <div class="container mt-5">
-        <h1 class="text-center mb-4">Hình Ảnh Ngẫu Nhiên</h1>
-        <div class="row" id="randomImagesContainer" style="height: 400px;"></div>
+        <h1 class="text-center mb-4" style="color: #A00826; font-size:40px">ALbum ảnh</h1>
+        <div class="row" id="randomImagesContainer"></div>
     </div>
-
-  
+    <div class="demnguoc">
+        <div class="background-image"></div>
+        <div class="container text-center mt-5 ">
+            <h1 class="text-center mt-4" style="color: #A00826; font-size:40px">Cùng Đếm Ngược Thời Gian</h1>
+            <h2 class="mb-4">Save The Date</h2>
+            <div id="countdown" class="row justify-content-center">
+                <div class="col-2">
+                    <div class="countdown-item">
+                        <span id="days">0</span>
+                        <div>Ngày</div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="countdown-item">
+                        <span id="hours">0</span>
+                        <div>Giờ</div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="countdown-item">
+                        <span id="minutes">0</span>
+                        <div>Phút</div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="countdown-item">
+                        <span id="seconds">0</span>
+                        <div>Giây</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
     <!-- <section id="map" class="container mt-5">
         <h2 class="section-title">Venue Directions</h2>
         <div>
@@ -663,12 +717,13 @@
           <i class="bi bi-disc"></i>
         </div>
       </div>
-    <section id="qr" class="qr-section">
+
+    <!-- <section id="qr" class="qr-section">
         <h2 class="section-title">Scan QR Codes</h2>
         <p>Scan the QR code below to view details:</p>
         <img src="https://via.placeholder.com/150?text=Groom+QR" alt="QR Code for Groom">
         <img src="https://via.placeholder.com/150?text=Bride+QR" alt="QR Code for Bride">
-    </section>
+    </section> -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
@@ -679,16 +734,15 @@
     "./img/anhnen2.jpg",
     "./img/anhnen.jpg",
     "./img/anhnen2.jpg",
-    "./img/anhnen.jpg",
     "./img/anhdoc.jpg",
+    "./img/anhnen.jpg",
     "./img/anhnen.jpg",
     "./img/anhnen.jpg",
     "./img/anhnen2.jpg",
-    "./img/anhdoc.jpg",
     "./img/anhnen.jpg",
     "./img/anhdoc.jpg",
     "./img/anhnen.jpg",
-    "./img/anhnen2.jpg",,
+    "./img/anhnen2.jpg",
     "./img/anhnen.jpg"
 ];
 
@@ -707,37 +761,90 @@ function getImageSize(url, callback) {
     img.src = url;
 }
 
-// Hàm sinh hình ảnh ngẫu nhiên
 function generateRandomImages() {
-    for (let i = 0; i < numberOfImages; i++) {
-        // Lấy ngẫu nhiên 1 hình ảnh từ danh sách
-        const randomImage = imageList[i];
+    let remainingImages = [...imageList]; // Sao chép danh sách ảnh
 
-        // Tạo một cột chứa hình ảnh
+    for (let i = 0; i < numberOfImages && remainingImages.length > 0; i++) {
+        // Lấy ảnh theo thứ tự
+        const firstImage = remainingImages.shift(); // Lấy ảnh đầu tiên trong danh sách
+
         const col = document.createElement("div");
-        col.className = "col-md-3 mb-4"; // Mỗi dòng 4 cột (col-md-3)
+        col.className = "col-md-3 col-6 mb-4"; // Responsive: 4 cột trên desktop, 2 cột trên điện thoại
 
-        // Kiểm tra kích thước ảnh
-        getImageSize(randomImage, function (width, height) {
-            const imgElement = `<img src="${randomImage}" alt="Random Image" class="img-fluid rounded border shadow">`;
+        // Kiểm tra kích thước ảnh đầu tiên
+        getImageSize(firstImage, function (width1, height1) {
+            if (width1 > height1 && remainingImages.length > 0) {
+                // Ảnh ngang: Lấy ảnh thứ hai ngẫu nhiên
+                const randomIndex = Math.floor(Math.random() * remainingImages.length);
+                const secondImage = remainingImages[randomIndex];
+                remainingImages.splice(randomIndex, 1); // Xóa ảnh thứ hai khỏi danh sách
 
-            // Nếu ảnh ngang, tạo một cột có 2 ảnh
-            if (width > height) {
-                // Thêm 2 ảnh vào cột
-                col.innerHTML = `${imgElement}${imgElement}`;
+                // Hiển thị 2 ảnh ngang
+                col.innerHTML = `
+                    <img src="${firstImage}" alt="Random Image" class="img-fluid rounded border shadow h-50" style="object-fit: cover;">
+                    <img src="${secondImage}" alt="Random Image" class="img-fluid rounded border shadow h-50" style="object-fit: cover;">
+                `;
+                i++; // Nhảy qua một ảnh nữa
             } else {
-                // Nếu ảnh dọc, chỉ thêm một ảnh vào cột
-                col.innerHTML = imgElement;
+                // Ảnh dọc hoặc không còn ảnh ngang thứ hai
+                col.innerHTML = `
+                    <img src="${firstImage}" alt="Random Image" class="img-fluid rounded border shadow h-100" style="object-fit: cover;">
+                `;
             }
 
-            // Thêm cột vào container
-            container.appendChild(col);
+            container.appendChild(col); // Thêm cột vào container
         });
     }
 }
 
+function getImageSize(src, callback) {
+    const img = new Image();
+    img.onload = function () {
+        callback(this.width, this.height); // Trả về kích thước ảnh
+    };
+    img.src = src;
+}
+
+// Hàm lấy kích thước ảnh
+function getImageSize(src, callback) {
+    const img = new Image();
+    img.onload = function () {
+        callback(this.width, this.height);
+    };
+    img.src = src;
+}
+// Hàm lấy kích thước ảnh
+function getImageSize(src, callback) {
+    const img = new Image();
+    img.onload = function () {
+        callback(this.width, this.height);
+    };
+    img.src = src;
+}
+
 // Gọi hàm để sinh hình ảnh khi tải trang
 generateRandomImages();
+const eventDate = new Date("2025-01-30T00:00:00").getTime();
+
+const countdown = setInterval(function() {
+    const now = new Date().getTime();
+    const distance = eventDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days").innerText = days;
+    document.getElementById("hours").innerText = hours;
+    document.getElementById("minutes").innerText = minutes;
+    document.getElementById("seconds").innerText = seconds;
+
+    if (distance < 0) {
+        clearInterval(countdown);
+        document.getElementById("countdown").innerHTML = "Sự kiện đã diễn ra!";
+    }
+}, 1000);
         document.addEventListener('DOMContentLoaded', () => {
             AOS.init();
             const swiper = new Swiper('.swiper-container', {
