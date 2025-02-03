@@ -77,6 +77,7 @@
 <script>
     const urlParams = new URLSearchParams(window.location.search);
     const type = urlParams.get('type'); 
+    const nameUrl = urlParams.get('name'); 
 
     const canvas = document.getElementById("weddingCanvas");
     const bia =  document.getElementById("bia");
@@ -87,7 +88,6 @@
         img.src="./img/3.png"
         bia.src = "./img/2.png"
     }
-
     img.onload = function() {
         canvas.width = img.width;
         canvas.height = img.height;
@@ -96,6 +96,6 @@
         // Thêm text lên ảnh
         ctx.font = "80px Serif";
         ctx.fillStyle = "brown";
-        ctx.fillText("Bạn Minh Hằng",450, 940);
+        ctx.fillText(nameUrl==null?"":nameUrl,450, 940);
     };
 </script>
