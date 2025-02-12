@@ -28,15 +28,16 @@
             font-style: normal;
 
         }
+
         @font-face {
             font-family: 'SVN-Nusrat';
             src: url('fonts/SVN-Nusrat.woff2') format('woff2'),
-                 url('fonts/SVN-Nusrat.woff') format('woff'),
-                 url('fonts/SVN-Nusrat.ttf') format('truetype');
+                url('fonts/SVN-Nusrat.woff') format('woff'),
+                url('fonts/SVN-Nusrat.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
         }
-        
+
 
         /* Cấu hình cho .hero */
         .hero {
@@ -76,8 +77,8 @@
             transform: scale(1);
             /* Thu nhỏ ảnh khi nó trở thành slide đang hiển thị */
         }
-     
-    
+
+
 
         /* Căn giữa chữ (tiêu đề và mô tả) */
         .hero .text-center {
@@ -119,7 +120,7 @@
             opacity: 1;
             /* Khi slide active, tiêu đề và mô tả sẽ rõ ràng */
         }
-      
+
 
         .section-title {
 
@@ -252,7 +253,7 @@
             width: 50%;
             display: flex;
             float: inline-start;
-            font-family:'SVN-Nusrat';
+            font-family: 'SVN-Nusrat';
             text-align: justify
         }
 
@@ -278,7 +279,7 @@
             width: 100%;
             width: 100%;
             background-position: center;
-            background-size:cover;
+            background-size: cover;
             background-repeat: no-repeat;
         }
 
@@ -472,12 +473,12 @@
 
         .demnguoc {
             position: relative;
-    height: 700px;
-    background-image: url(./img/anhdemnguoc.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+            height: 700px;
+            background-image: url(./img/anhdemnguoc.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
         }
 
         .rsvp-container {
@@ -560,7 +561,7 @@
         .formacpect {
             display: flex;
         }
-        
+
 
         @media (max-width: 768px) {
             .info {
@@ -676,13 +677,16 @@
             .formacpect {
                 display: block;
             }
-            #anhnenhome1{
+
+            #anhnenhome1 {
                 background-image: url('./img/anhhomnen1.jpg') !important;
             }
-            #anhnenhome2{
+
+            #anhnenhome2 {
                 background-image: url('./img/anhhomnen2.jpg') !important;
             }
         }
+
         .hoaroi {
             position: fixed;
             top: 0;
@@ -692,22 +696,24 @@
             pointer-events: none;
             z-index: 100000;
         }
-        
+
         .flower {
             position: fixed;
             width: 20px;
             height: 20px;
-            background-image: url("./img/traitim.jpg"); /* Link hình hoa */
+            background-image: url("./img/traitim.jpg");
+            /* Link hình hoa */
             background-size: cover;
             opacity: 0.8;
             animation: fall linear infinite;
         }
-        
+
         @keyframes fall {
             0% {
                 transform: translateY(0) rotate(0deg);
                 opacity: 1;
             }
+
             100% {
                 transform: translateY(100vh) rotate(360deg);
                 opacity: 0;
@@ -740,7 +746,8 @@
             <div class="tilte-nam  text-stroke-white">
                 <h5 class="title"><span>Chú rể</span></h5>
                 <h3 class="name"><span>Hoàng Duy</span></h3>
-                <span class="des-nam">Hôn nhân không phải là sự ràng buộc, mà là sự đồng hành. Không phải là chịu đựng, mà là thấu hiểu. Không phải là từ bỏ bản thân, mà là cùng nhau tốt lên.&nbsp;</span>
+                <span class="des-nam">Hôn nhân không phải là sự ràng buộc, mà là sự đồng hành. Không phải là chịu đựng,
+                    mà là thấu hiểu. Không phải là từ bỏ bản thân, mà là cùng nhau tốt lên.&nbsp;</span>
                 <div class="is-divider divider clearfix"
                     style="max-width:30000000000000px;height:1px;background-color:rgb(255, 255, 255);"></div>
             </div>
@@ -756,7 +763,8 @@
             <div class="tilte-nu  text-stroke-white">
                 <h5 class="title"><span>Cô dâu</span></h5>
                 <h3 class="name"><span>Minh Hằng</span></h3>
-                <span class="des-nu">Ở thời điểm phù hợp nhất, khoác lên mình bộ váy cưới đẹp nhất, gả cho người đáng tin cậy nhất, là anh.&nbsp;</span>
+                <span class="des-nu">Ở thời điểm phù hợp nhất, khoác lên mình bộ váy cưới đẹp nhất, gả cho người đáng
+                    tin cậy nhất, là anh.&nbsp;</span>
                 <div class="is-divider-left divider clearfix"
                     style="max-width:30000000000000px;height:1px;background-color:rgb(255, 255, 255);"></div>
             </div>
@@ -941,7 +949,7 @@
         <h1 class="text-center mb-4" style="color: #A00826; font-size:40px">ALbum ảnh</h1>
         <div class="row" id="randomImagesContainer"></div>
     </div>
-    <div class="demnguoc mb-3" >
+    <div class="demnguoc mb-3">
         <!-- <div class="background-image"></div> -->
         <div class="container text-center mt-5 " style="margin: 0 auto;
     position: absolute;
@@ -982,77 +990,20 @@
 
     <div class="container mt-5 justify-content-center formacpect">
         <div class="rsvp-container col-md-6 col-12">
-            <h3 class="text-center fw-bold">Xác nhận tham dự</h3>
-            <p class="text-center">Vui lòng điền thông tin để xác nhận tham dự với chúng tôi</p>
+            <h3 class="text-center fw-bold">Gửi lời chúc tới đôi uyên ương:</h3>
 
-            <form id="rsvpForm">
+            <div id="rsvpForm">
                 <div class="mb-3">
-                    <label class="form-label">Tên khách mời:</label>
-                    <input type="text" class="form-control" id="guestName" placeholder="Vui lòng điền tên của bạn">
-                    <small class="text-danger d-none" id="nameError">Vui lòng nhập dữ liệu cho trường này.</small>
+                    <textarea class="form-control" id="message" rows="3"
+                        placeholder="Gửi lời chúc tốt đẹp tại đây"></textarea>
                 </div>
 
-                <div class="mb-3">
-                    <label class="form-label">Bạn tham dự bữa tiệc nào?</label><br>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="brideParty">
-                        <label class="form-check-label" for="brideParty">Tiệc cưới nhà gái</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="groomParty" checked>
-                        <label class="form-check-label" for="groomParty">Tiệc cưới nhà trai</label>
-                    </div>
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Quý khách tham dự được chứ?</label><br>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="attendance" value="Tham dự">
-                        <label class="form-check-label">Tham dự</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="attendance" value="Có thể" checked>
-                        <label class="form-check-label">Có thể</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="attendance" value="Rất tiếc">
-                        <label class="form-check-label">Rất tiếc</label>
-                    </div>
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Số người tham dự:</label>
-                    <select class="form-select">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5+</option>
-                    </select>
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Bạn là khách mời của:</label><br>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="guestType" value="Nhà trai" checked>
-                        <label class="form-check-label">Khách nhà trai</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="guestType" value="Nhà gái">
-                        <label class="form-check-label">Khách nhà gái</label>
-                    </div>
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Gửi lời chúc tới đôi uyên ương:</label>
-                    <textarea class="form-control" rows="3" placeholder="Gửi lời chúc tốt đẹp tại đây"></textarea>
-                </div>
-
-                <button type="submit" class="btn btn-rsvp">Xác Nhận Tham Dự</button>
-            </form>
+                <button onclick="sendMessage()" class="btn btn-rsvp">Gửi lời yêu thương</button>
+            </div>
         </div>
         <div class="col-md-6 col-12">
-            <img style="width:100%; height:auto" src="/img/anhnen2.jpg" />
+            <h3>Lời chúc đã nhận:</h3>
+            <div id="messages"></div>
         </div>
     </div>
 
@@ -1109,23 +1060,23 @@
             const flower = document.createElement("div");
             flower.classList.add("flower");
             document.querySelector(".hoaroi").appendChild(flower);
-        
+
             // Vị trí ngẫu nhiên theo chiều ngang
             flower.style.left = Math.random() * window.innerWidth + "px";
-        
+
             // Thời gian rơi và tốc độ ngẫu nhiên
             let duration = Math.random() * 3 + 3; // Từ 3-6 giây
             flower.style.animationDuration = duration + "s";
-        
+
             // Xóa hoa sau khi rơi
             setTimeout(() => {
                 flower.remove();
             }, duration * 1000);
         }
-        
+
         // Tạo hoa liên tục
         setInterval(createFlower, 300);
-        
+
 
         const imageList = [
             "./img/album1.jpg",
@@ -1133,7 +1084,7 @@
 
             "./img/album6.jpg",
             "./img/album3.jpg",
-       
+
             "./img/album13.jpg",
             "./img/album14.jpg",
             "./img/album4.jpg",
@@ -1147,7 +1098,7 @@
             "./img/album11.jpg",
             "./img/album16.jpg",
             "./img/album15.jpg",
-          
+
             "./img/album18.jpg",
         ];
 
@@ -1172,28 +1123,28 @@
                 getImageSize(imageSrc, (width, height) => resolve({ width, height }));
             });
         }
-        
+
         async function generateRandomImages() {
             let remainingImages = [...imageList]; // Sao chép danh sách ảnh
             let i = 0;
-        
+
             while (i < numberOfImages && remainingImages.length > 0) {
                 const firstImage = remainingImages.shift();
                 const { width: width1, height: height1 } = await getImageSizeAsync(firstImage);
-        
+
                 const col = document.createElement("div");
                 col.className = "col-md-3 col-6 mb-4"; // Responsive: 4 cột trên desktop, 2 cột trên điện thoại
-        
+
                 if (width1 > height1 && remainingImages.length > 0) {
                     // Tìm ảnh ngang tiếp theo
                     let secondImageIndex = remainingImages.findIndex(async (img) => {
                         const { width: width2, height: height2 } = await getImageSizeAsync(img);
                         return width2 > height2;
                     });
-        
+
                     if (secondImageIndex !== -1) {
                         const secondImage = remainingImages.splice(secondImageIndex, 1)[0];
-        
+
                         col.innerHTML = `
                             <img src="${firstImage}" alt="Random Image" class="img-fluid rounded border shadow h-50" style="object-fit: cover;">
                             <img src="${secondImage}" alt="Random Image" class="img-fluid rounded border shadow h-50" style="object-fit: cover;">
@@ -1211,13 +1162,13 @@
                         <img src="${firstImage}" alt="Random Image" class="img-fluid rounded border shadow h-100" style="object-fit: cover;">
                     `;
                 }
-        
+
                 container.appendChild(col);
                 i++;
             }
         }
-        
-        
+
+
         function getImageSize(src, callback) {
             const img = new Image();
             img.onload = function () {
@@ -1242,18 +1193,7 @@
             };
             img.src = src;
         }
-        document.getElementById('rsvpForm').addEventListener('submit', function (event) {
-            event.preventDefault();
-            let guestName = document.getElementById('guestName').value.trim();
-            let nameError = document.getElementById('nameError');
 
-            if (guestName === '') {
-                nameError.classList.remove('d-none');
-            } else {
-                nameError.classList.add('d-none');
-                alert('Cảm ơn bạn đã xác nhận tham dự!');
-            }
-        });
 
         // Gọi hàm để sinh hình ảnh khi tải trang
         generateRandomImages();
@@ -1325,7 +1265,46 @@
             rootElement.style.scrollBehavior = "smooth"; // Re-enable smooth scrolling
             playAudio(); // Start playing the audio when scrolling is enabled
         }
-       
+        const scriptURL = "https://script.google.com/macros/s/AKfycbx6Cfc_SeGPSPvsar5_-fwn3KkTe3tv-UPUsvmSK64ZkYulbrAEq8Jt5D_HVX1CBZPHxg/exec";
+
+        function sendMessage () {
+            let message = document.getElementById("message").value;
+            if (!message) {
+                alert("Vui lòng nhập lời chúc!");
+                return;
+            }
+        
+            fetch("https://script.google.com/macros/s/AKfycbxPsssLZfdYkzlcxBEe8Hw1wQHRBcYhziI373vj0ysE2wt5ZAl_Zk-LU_P_dK81_eLtqA/exec", {
+                method: "POST",
+                body: JSON.stringify({ message: message }),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert("✅ " + data.message);
+                document.getElementById("messageInput").value = "";
+                loadMessages();
+            })
+            .catch(error => console.error("Lỗi:", error));
+        }
+
+        function loadMessages() {
+            fetch("https://script.google.com/macros/s/AKfycbxPsssLZfdYkzlcxBEe8Hw1wQHRBcYhziI373vj0ysE2wt5ZAl_Zk-LU_P_dK81_eLtqA/exec")
+                .then(response => response.json())
+                .then(data => {
+                    let messagesHTML = "";
+                    data.forEach(item => {
+                        messagesHTML += `<div class="message-item"><strong>${new Date(item.date).toLocaleDateString("vi-VN")}:</strong> ${item.message}</div>`;
+                    });
+                    document.getElementById("messagesList").innerHTML = messagesHTML;
+                })
+                .catch(error => console.error("Error:", error));
+        }
+
+        // Tải danh sách lời chúc khi mở trang
+        loadMessages();
     </script>
 </body>
 
