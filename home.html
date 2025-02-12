@@ -683,11 +683,42 @@
                 background-image: url('./img/anhhomnen2.jpg') !important;
             }
         }
+        .hoaroi {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 100000;
+        }
+        
+        .flower {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background-image: url("./img/traitim.jpg"); /* Link hình hoa */
+            background-size: cover;
+            opacity: 0.8;
+            animation: fall linear infinite;
+        }
+        
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
     </style>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 </head>
 
 <body>
+    <div class="hoaroi"></div>
     <div class="hero">
         <div class="swiper-container">
             <div class="swiper-wrapper">
@@ -1073,27 +1104,58 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
     <script>
+        function createFlower() {
+            console.log("tse")
+            const flower = document.createElement("div");
+            flower.classList.add("flower");
+            document.querySelector(".hoaroi").appendChild(flower);
+        
+            // Vị trí ngẫu nhiên theo chiều ngang
+            flower.style.left = Math.random() * window.innerWidth + "px";
+        
+            // Thời gian rơi và tốc độ ngẫu nhiên
+            let duration = Math.random() * 3 + 3; // Từ 3-6 giây
+            flower.style.animationDuration = duration + "s";
+        
+            // Xóa hoa sau khi rơi
+            setTimeout(() => {
+                flower.remove();
+            }, duration * 1000);
+        }
+        
+        // Tạo hoa liên tục
+        setInterval(createFlower, 300);
+        
+
         const imageList = [
-            "./img/anhnen.jpg",
-            "./img/anhnen2.jpg",
-            "./img/anhnen.jpg",
-            "./img/anhnen2.jpg",
-            "./img/anhdoc.jpg",
-            "./img/anhnen.jpg",
-            "./img/anhnen.jpg",
-            "./img/anhnen.jpg",
-            "./img/anhnen2.jpg",
-            "./img/anhnen.jpg",
-            "./img/anhdoc.jpg",
-            "./img/anhnen.jpg",
-            "./img/anhnen2.jpg",
-            "./img/anhnen.jpg"
+            "./img/album1.jpg",
+            "./img/album2.jpg",
+
+            "./img/album6.jpg",
+            "./img/album3.jpg",
+       
+            "./img/album13.jpg",
+            "./img/album14.jpg",
+            "./img/album4.jpg",
+            "./img/album5.jpg",
+            "./img/album7.jpg",
+            "./img/album8.jpg",
+            "./img/album12.jpg",
+            "./img/album17.jpg",
+            "./img/album9.jpg",
+            "./img/album10.jpg",
+            "./img/album11.jpg",
+            "./img/album16.jpg",
+            "./img/album15.jpg",
+          
+            "./img/album18.jpg",
         ];
 
         // Số lượng hình ảnh muốn hiển thị
-        const numberOfImages = 12;
+        const numberOfImages = 18;
 
         // Lấy container để hiển thị hình ảnh
+
         const container = document.getElementById("randomImagesContainer");
 
         // Hàm kiểm tra kích thước ảnh
@@ -1105,42 +1167,57 @@
             img.src = url;
         }
 
-        function generateRandomImages() {
+        async function getImageSizeAsync(imageSrc) {
+            return new Promise((resolve) => {
+                getImageSize(imageSrc, (width, height) => resolve({ width, height }));
+            });
+        }
+        
+        async function generateRandomImages() {
             let remainingImages = [...imageList]; // Sao chép danh sách ảnh
-
-            for (let i = 0; i < numberOfImages && remainingImages.length > 0; i++) {
-                // Lấy ảnh theo thứ tự
-                const firstImage = remainingImages.shift(); // Lấy ảnh đầu tiên trong danh sách
-
+            let i = 0;
+        
+            while (i < numberOfImages && remainingImages.length > 0) {
+                const firstImage = remainingImages.shift();
+                const { width: width1, height: height1 } = await getImageSizeAsync(firstImage);
+        
                 const col = document.createElement("div");
                 col.className = "col-md-3 col-6 mb-4"; // Responsive: 4 cột trên desktop, 2 cột trên điện thoại
-
-                // Kiểm tra kích thước ảnh đầu tiên
-                getImageSize(firstImage, function (width1, height1) {
-                    if (width1 > height1 && remainingImages.length > 0) {
-                        // Ảnh ngang: Lấy ảnh thứ hai ngẫu nhiên
-                        const randomIndex = Math.floor(Math.random() * remainingImages.length);
-                        const secondImage = remainingImages[randomIndex];
-                        remainingImages.splice(randomIndex, 1); // Xóa ảnh thứ hai khỏi danh sách
-
-                        // Hiển thị 2 ảnh ngang
+        
+                if (width1 > height1 && remainingImages.length > 0) {
+                    // Tìm ảnh ngang tiếp theo
+                    let secondImageIndex = remainingImages.findIndex(async (img) => {
+                        const { width: width2, height: height2 } = await getImageSizeAsync(img);
+                        return width2 > height2;
+                    });
+        
+                    if (secondImageIndex !== -1) {
+                        const secondImage = remainingImages.splice(secondImageIndex, 1)[0];
+        
                         col.innerHTML = `
-                    <img src="${firstImage}" alt="Random Image" class="img-fluid rounded border shadow h-50" style="object-fit: cover;">
-                    <img src="${secondImage}" alt="Random Image" class="img-fluid rounded border shadow h-50" style="object-fit: cover;">
-                `;
-                        i++; // Nhảy qua một ảnh nữa
+                            <img src="${firstImage}" alt="Random Image" class="img-fluid rounded border shadow h-50" style="object-fit: cover;">
+                            <img src="${secondImage}" alt="Random Image" class="img-fluid rounded border shadow h-50" style="object-fit: cover;">
+                        `;
+                        i++; // Tăng thêm một lần vì có hai ảnh
                     } else {
-                        // Ảnh dọc hoặc không còn ảnh ngang thứ hai
+                        // Không tìm thấy ảnh ngang thứ hai, chỉ hiển thị ảnh đầu tiên
                         col.innerHTML = `
-                    <img src="${firstImage}" alt="Random Image" class="img-fluid rounded border shadow h-100" style="object-fit: cover;">
-                `;
+                            <img src="${firstImage}" alt="Random Image" class="img-fluid rounded border shadow h-100" style="object-fit: cover;">
+                        `;
                     }
-
-                    container.appendChild(col); // Thêm cột vào container
-                });
+                } else {
+                    // Ảnh dọc hoặc không có ảnh ngang thứ hai
+                    col.innerHTML = `
+                        <img src="${firstImage}" alt="Random Image" class="img-fluid rounded border shadow h-100" style="object-fit: cover;">
+                    `;
+                }
+        
+                container.appendChild(col);
+                i++;
             }
         }
-
+        
+        
         function getImageSize(src, callback) {
             const img = new Image();
             img.onload = function () {
@@ -1248,7 +1325,7 @@
             rootElement.style.scrollBehavior = "smooth"; // Re-enable smooth scrolling
             playAudio(); // Start playing the audio when scrolling is enabled
         }
-
+       
     </script>
 </body>
 
