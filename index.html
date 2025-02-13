@@ -97,6 +97,7 @@
     const urlParams = new URLSearchParams(window.location.search);
     const type = urlParams.get('type'); 
     const nameUrl = urlParams.get('name'); 
+    document.title = "Kính mời - " + nameUrl;
     var metaOgTitle = document.querySelector('meta[property="og:title"]');
     if (metaOgTitle) {
         metaOgTitle.setAttribute("content", "Kính mời - " + nameUrl);
