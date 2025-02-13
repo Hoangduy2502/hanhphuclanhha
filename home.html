@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pnotify/3.2.1/pnotify.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pnotify/3.2.1/pnotify.buttons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pnotify/3.2.1/pnotify.brighttheme.css">
 
     <style>
         body {
@@ -487,6 +490,7 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            height: 340px;
         }
 
         .form-check-input:checked {
@@ -718,6 +722,34 @@
                 transform: translateY(100vh) rotate(360deg);
                 opacity: 0;
             }
+        }
+
+        .message-item {
+            background: #d3d3d3;
+            padding: 20px;
+            width: 500px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 10px;
+        }
+        .message-title {
+            font-size: 22px;
+            font-weight: bold;
+        }
+        .message-content {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .border-line {
+            margin-top: 10px;
+            border-bottom: 2px dashed black;
+        }
+        .hearts {
+            color: red;
+        }
+        #messagesList{
+            height: 305px;
+            overflow: auto;
         }
     </style>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
@@ -994,7 +1026,7 @@
 
             <div id="rsvpForm">
                 <div class="mb-3">
-                    <textarea class="form-control" id="message" rows="3"
+                    <textarea class="form-control" id="message" rows="8"
                         placeholder="Gửi lời chúc tốt đẹp tại đây"></textarea>
                 </div>
 
@@ -1003,7 +1035,7 @@
         </div>
         <div class="col-md-6 col-12">
             <h3>Lời chúc đã nhận:</h3>
-            <div id="messages"></div>
+            <div id="messagesList"></div>
         </div>
     </div>
 
@@ -1055,6 +1087,9 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
     <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const type = urlParams.get('type'); 
+        const nameUrl = urlParams.get('name'); 
         function createFlower() {
             console.log("tse")
             const flower = document.createElement("div");
@@ -1236,7 +1271,8 @@
                 //clickable: true,
                 //},
             });
-
+       // Tải danh sách lời chúc khi mở trang
+       loadMessages();
         });
 
         function playAudio() {
@@ -1265,46 +1301,78 @@
             rootElement.style.scrollBehavior = "smooth"; // Re-enable smooth scrolling
             playAudio(); // Start playing the audio when scrolling is enabled
         }
-        const scriptURL = "https://script.google.com/macros/s/AKfycbx6Cfc_SeGPSPvsar5_-fwn3KkTe3tv-UPUsvmSK64ZkYulbrAEq8Jt5D_HVX1CBZPHxg/exec";
-
-        function sendMessage () {
+        function sendMessage() {
             let message = document.getElementById("message").value;
             if (!message) {
                 alert("Vui lòng nhập lời chúc!");
                 return;
             }
-        
-            fetch("https://script.google.com/macros/s/AKfycbxPsssLZfdYkzlcxBEe8Hw1wQHRBcYhziI373vj0ysE2wt5ZAl_Zk-LU_P_dK81_eLtqA/exec", {
-                method: "POST",
-                body: JSON.stringify({ message: message }),
-                headers: {
-                    "Content-Type": "application/json"
+            alert("Cảm ơn bạn đã gửi lời chúc đến vợ chồng mình. Rất mong bạn có thể chung vui với vợ chồng mình!");
+            let messagesList = document.getElementById("messagesList");
+            let newMessageHTML = `
+            <div class="message-item" style="display:block">
+                <div class="message-title">${new Date().toLocaleDateString("vi-VN")}: ${nameUrl}</div>  
+                <div class="message-content">${message}</div>
+                <div class="border-line"></div>
+                <div class="content">💌</div>
+            </div>`;
+            messagesList.innerHTML = newMessageHTML + messagesList.innerHTML; // Thêm vào đầu danh sách
+            document.getElementById("message").value = "";
+            if (nameUrl == undefined || nameUrl == null || nameUrl == "") {
+                nameUrl = "Bạn Yêu Thương";
+            }
+            const data = {
+                "data": {
+                    "Message": message,
+                    "Name": nameUrl
                 }
+            };
+        
+            fetch("https://frank-lizard-65.hasura.app/api/rest/insertmessage", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "x-hasura-admin-secret": "lWRIZTbUsW3JUMWxvMom1RKou9YL6F64n4KPPbn2mlowyAfpnY2MMHYRKljKwhQT"
+                },
+                body: JSON.stringify(data)
             })
             .then(response => response.json())
             .then(data => {
-                alert("✅ " + data.message);
-                document.getElementById("messageInput").value = "";
-                loadMessages();
+                
             })
-            .catch(error => console.error("Lỗi:", error));
+            .catch(error => {
+                console.error("Lỗi:", error);
+            });
         }
-
+        
         function loadMessages() {
-            fetch("https://script.google.com/macros/s/AKfycbxPsssLZfdYkzlcxBEe8Hw1wQHRBcYhziI373vj0ysE2wt5ZAl_Zk-LU_P_dK81_eLtqA/exec")
+            fetch("https://frank-lizard-65.hasura.app/api/rest/listmessage",{
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "x-hasura-admin-secret": "lWRIZTbUsW3JUMWxvMom1RKou9YL6F64n4KPPbn2mlowyAfpnY2MMHYRKljKwhQT"
+                },
+            })
                 .then(response => response.json())
                 .then(data => {
+                    console.log(data)
                     let messagesHTML = "";
-                    data.forEach(item => {
-                        messagesHTML += `<div class="message-item"><strong>${new Date(item.date).toLocaleDateString("vi-VN")}:</strong> ${item.message}</div>`;
+                    data.message.forEach(item => {
+                        messagesHTML += `
+                        <div class="message-item" style="display:block">
+                            <div class="message-title">${new Date(item.Datetime).toLocaleDateString("vi-VN")}: ${item.Name}</div>  
+                            <div class="message-content">${item.Message}</div>
+                            <div class="border-line"></div>
+                            <div class="content">💌</div>
+                        </div>`;
                     });
                     document.getElementById("messagesList").innerHTML = messagesHTML;
                 })
                 .catch(error => console.error("Error:", error));
         }
-
-        // Tải danh sách lời chúc khi mở trang
-        loadMessages();
+        
+ 
+        
     </script>
 </body>
 
