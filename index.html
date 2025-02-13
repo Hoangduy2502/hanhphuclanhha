@@ -23,24 +23,7 @@
     <meta property="og:image:width" content="800">
     <meta property="og:image:height" content="354">
     <script>
-        // Lấy URL hiện tại
-        var urlParamstest = new URLSearchParams(window.location.search);
-        
-        // Chuyển toàn bộ tham số URL thành chuỗi
-        const nameUrlParam = urlParamstest.get('name'); 
-        
-        if (nameUrlParam) {
-            nameUrlParam = decodeURIComponent(nameUrlParam); // Giải mã URL để hiển thị đúng tiếng Việt
-    
-            // Cập nhật title của trang
-            document.title = "Kính mời - " + nameUrlParam;
-    
-            // Cập nhật meta tag Open Graph để hiển thị đúng trên Facebook, Zalo, Telegram
-            var metaOgTitle = document.querySelector('meta[property="og:title"]');
-            if (metaOgTitle) {
-                metaOgTitle.setAttribute("content", "Kính mời - " + nameUrlParam);
-            }
-        }
+       
     </script>
     <style>
         body {
@@ -114,7 +97,10 @@
     const urlParams = new URLSearchParams(window.location.search);
     const type = urlParams.get('type'); 
     const nameUrl = urlParams.get('name'); 
-
+    var metaOgTitle = document.querySelector('meta[property="og:title"]');
+    if (metaOgTitle) {
+        metaOgTitle.setAttribute("content", "Kính mời - " + nameUrl);
+    }
     const canvas = document.getElementById("weddingCanvas");
     const bia =  document.getElementById("bia");
     const ctx = canvas.getContext("2d");
