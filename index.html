@@ -75,7 +75,7 @@
         const urlParams = new URLSearchParams(window.location.search);
         const type = urlParams.get('type'); 
         const nameUrl = urlParams.get('name'); 
-        window.location.assign(`home.html?${name}=${encodeURIComponent(nameUrl)}&${type}=${encodeURIComponent(type)}`);
+        window.location.assign(`home.html?${name}=${encodeURIComponent(nameUrl)}&type=${encodeURIComponent(type)}`);
     }
     
 </script>

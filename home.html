@@ -568,6 +568,15 @@
 
 
         @media (max-width: 768px) {
+            .timeline-content h4{
+                font-size: 20px;
+            }
+            .timeline-content p{
+                font-size: 13px;
+            }
+            #gift-message{
+                margin-top: 50px;
+            }
             .info {
                 flex-direction: column;
                 /* Sắp xếp khối theo chiều dọc */
@@ -751,6 +760,9 @@
             height: 305px;
             overflow: auto;
         }
+        .event-card{
+            font-family:"SVN-Nusrat" ;
+        }
     </style>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 </head>
@@ -778,7 +790,7 @@
             <div class="tilte-nam  text-stroke-white">
                 <h5 class="title"><span>Chú rể</span></h5>
                 <h3 class="name"><span>Hoàng Duy</span></h3>
-                <span class="des-nam">Hôn nhân không phải là sự ràng buộc, mà là sự đồng hành. Không phải là chịu đựng,
+                <span class="des-nam">Đối với mình nhân không phải là sự ràng buộc, mà là sự đồng hành. Không phải là chịu đựng,
                     mà là thấu hiểu. Không phải là từ bỏ bản thân, mà là cùng nhau tốt lên.&nbsp;</span>
                 <div class="is-divider divider clearfix"
                     style="max-width:30000000000000px;height:1px;background-color:rgb(255, 255, 255);"></div>
@@ -809,22 +821,23 @@
     <div class="timeline-back">
         <section id="timeline" class="container">
             <h1 class="text-center section-title" style="color:#dee2e6; font-size:40px">Chuyện Tình Yêu</h1>
+            <h5 class="text-center" style="color: #dee2e6;">Tình yêu không làm cho thế giới quay tròn, nhưng tình yêu làm cho hành trình ấy trở nên đáng giá. Hôm nay, chúng mình muốn chia sẻ niềm hạnh phúc này với những người thân yêu nhất – những người đã luôn ủng hộ và yêu thương chúng mình trên chặng đường vừa qua.</h5>
             <div class="timeline">
                 <div class="row" style="margin-bottom: 40px;">
                     <div class="col-6  image-container" data-aos="flip-right">
                         <img src="./img/anhdoc.jpg" class="rounded-image" />
                     </div>
                     <div class="col-6  timeline-content timeline-left-content" data-aos="flip-left">
-                        <h4>First Meeting</h4>
-                        <p>We met for the first time and sparks flew!</p>
+                        <h4 style="font-family: 'SVN-Nusrat';">10-07-2020</h4>
+                        <p>Chúng mình gặp nhau vào một ngày bình thường, nhưng từ giây phút ấy, mọi thứ trở nên đặc biệt. Từ những tin nhắn đơn giản, những lần trò chuyện không dứt, cho đến những khoảnh khắc hiểu nhau chỉ qua ánh mắt… tình yêu lớn dần lúc nào không hay.</p>
                     </div>
 
                 </div>
                 <div class="row" style="margin-bottom: 40px;">
 
                     <div class="col-6 timeline-content timeline-right-content" data-aos="flip-right">
-                        <h4>First Meeting</h4>
-                        <p>We met for the first time and sparks flew!</p>
+                        <h4 style="font-family: 'SVN-Nusrat';">19-10-2020</h4>
+                        <p>Không có nến, không có hoa, không có một màn tỏ tình hoành tráng. Chỉ là một ngày bình thường như bao ngày khác, người ấy nhìn mình thật lâu và nói: 'Chúng ta hãy cùng nhau đi xa hơn nhé!' Và thế là, hai trái tim cùng nhịp đập, cùng nhau bước trên con đường yêu thương.</p>
                     </div>
                     <div class="col-6  image-container " data-aos="flip-left">
                         <img src="./img/anhthiep2.jpg" class="rounded-image" />
@@ -836,16 +849,16 @@
                         <img src="./img/anhthiep3.jpg" class="rounded-image" />
                     </div>
                     <div class="col-6 timeline-content timeline-left-content" data-aos="flip-left">
-                        <h4>First Meeting</h4>
-                        <p>We met for the first time and sparks flew!</p>
+                        <h4 style="font-family: 'SVN-Nusrat';">20-10-2024</h4>
+                        <p>Chúng mình đã đi cùng nhau qua biết bao chặng đường, và đến một ngày, anh nhẹ nhàng đưa ra chiếc nhẫn và nói: ‘Anh không hứa sẽ cho em một cuộc sống hoàn hảo, nhưng anh hứa sẽ luôn bên em, cùng em vượt qua tất cả. Em có đồng ý làm vợ anh nhé?’ Và khoảnh khắc ấy, mình biết rằng mình đã tìm thấy bến đỗ của đời mình.</p>
                     </div>
 
                 </div>
                 <div class="row" style="margin-bottom: 40px;">
 
                     <div class="col-6 timeline-content timeline-right-content" data-aos="flip-right">
-                        <h4>First Meeting</h4>
-                        <p>We met for the first time and sparks flew!</p>
+                        <h4 style="font-family: 'SVN-Nusrat';">07-02-2025</h4>
+                        <p>"Bao giờ sính lễ anh trao, trâu cau đem tới, em theo anh về "</p>
                     </div>
                     <div class="col-6  image-container" data-aos="flip-left">
                         <img src="./img/anhthiep4.jpg" class="rounded-image" />
@@ -861,23 +874,23 @@
         <p class="text-center mb-4">Vui lòng chọn sự kiện để xem lịch trình chi tiết hôn lễ.</p>
         <ul class="nav nav-tabs justify-content-center mb-4" id="eventTabs" role="tablist">
             <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="nhatrai-tab" data-bs-toggle="tab" data-bs-target="#nhatrai"
+                <button class="nav-link " id="nhatrai-tab" data-bs-toggle="tab" data-bs-target="#nhatrai"
                     type="button" role="tab" aria-controls="nhatrai" aria-selected="true">Nhà Trai</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="nhagai-tab" data-bs-toggle="tab" data-bs-target="#nhagai" type="button"
+                <button class="nav-link active" id="nhagai-tab" data-bs-toggle="tab" data-bs-target="#nhagai" type="button"
                     role="tab" aria-controls="nhagai" aria-selected="false">Nhà Gái</button>
             </li>
         </ul>
 
         <div class="tab-content" id="eventTabsContent">
             <!-- Nhà Trai Tab -->
-            <div class="tab-pane fade show active" id="nhatrai" role="tabpanel" aria-labelledby="nhatrai-tab">
+            <div class="tab-pane fade " id="nhatrai" role="tabpanel" aria-labelledby="nhatrai-tab">
                 <div class="row justify-content-center">
                     <div class="col-md-5">
                         <div class="event-card">
                             <img src="./img/anhnen.jpg" alt="Nhà Trai">
-                            <h3>Tiệc Thân Mật Nhà Trai</h3>
+                            <h3>Tiệc Thân Mật</h3>
                             <p>Tại Tư Gia Nhà Trai<br>Bàng La, Đồ Sơn, Hải Phòng</p>
                             <p class="date">Chủ Nhật, 02 Tháng 03 Năm 2025<br>Vào Lúc 17:00</p>
                             <p>Nhằm Ngày 03 Tháng 02 Năm Ất Tỵ</p>
@@ -924,15 +937,15 @@
             </div>
 
             <!-- Nhà Gái Tab -->
-            <div class="tab-pane fade" id="nhagai" role="tabpanel" aria-labelledby="nhagai-tab">
+            <div class="tab-pane fade show active" id="nhagai" role="tabpanel" aria-labelledby="nhagai-tab">
                 <div class="row justify-content-center">
                     <div class="col-md-5">
                         <div class="event-card">
                             <img src="./img/anhnen.jpg" alt="Nhà Trai">
-                            <h3>Tiệc Thân Mật Nhà Gái</h3>
-                            <p>Tại Tư Gia Nhà Trai<br>Hoàn Kiếm, Hà Nội</p>
-                            <p class="date">Chủ Nhật, 08/09 Năm 2024<br>Vào Lúc 10:00</p>
-                            <p>Nhằm Ngày 19 Tháng 08 Năm Giáp Thìn</p>
+                            <h3>Tiệc Thân Mật</h3>
+                            <p>Tại Tư Gia Nhà Gái<br>Nội Hợp, Lê Ninh, Kinh Môn, Hải Dương</p>
+                            <p class="date">Chủ Nhật, 02/03 Năm 2025<br>Vào Lúc 15:30</p>
+                            <p>Nhằm Ngày 03 Tháng 02 Năm Ất Tỵ</p>
                             <div class="icons">
                                 <i class="bi bi-telephone-fill"></i>
                                 <i class="bi bi-chat-dots-fill"></i>
@@ -941,9 +954,7 @@
                                     <i class="bi bi-geo-alt-fill"></i>
                                 </a>
                                 <div>
-                                    <iframe class="map"
-                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.8354345097515!2d144.95565101568054!3d-37.81731417975157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0x5045675218ce7e33!2sGroom%27s%20House!5e0!3m2!1sen!2s!4v1600871758580!5m2!1sen!2s"
-                                        allowfullscreen="" loading="lazy"></iframe>
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d884.8648576924388!2d106.43050377109718!3d21.04447595999833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313578a82d4140dd%3A0xb5912800bd7eadee!2zTuG7mWkgSOG7o3AsIEzhu4UgTmluaCwgS2luaCBNw7RuLCBI4bqjaSBExrDGoW5nLCBWaeG7h3QgTmFt!5e1!3m2!1svi!2s!4v1739456736010!5m2!1svi!2s"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                                 </div>
                             </div>
                         </div>
@@ -952,9 +963,9 @@
                         <div class="event-card">
                             <img src="./img/anhnen.jpg" alt="Nhà Gái">
                             <h3>Tiệc Vu Quy</h3>
-                            <p>Tại White Palace<br>Ba Đình, Hà Nội</p>
-                            <p class="date">Chủ Nhật, 08/09 Năm 2024<br>Vào Lúc 10:00</p>
-                            <p>Nhằm Ngày 19 Tháng 08 Năm Giáp Thìn</p>
+                            <p>Tại Tư Gia Nhà Gái<br>Nội Hợp, Lê Ninh, Kinh Môn, Hải Dương</p>
+                            <p class="date">Thứ 2, 03/03 Năm 2025<br>Vào Lúc 05:00</p>
+                            <p>Nhằm Ngày 04 Tháng 02 Năm Ất Tỵ</p>
                             <div class="icons">
                                 <i class="bi bi-telephone-fill"></i>
                                 <i class="bi bi-chat-dots-fill"></i>
@@ -963,9 +974,7 @@
                                     <i class="bi bi-geo-alt-fill"></i>
                                 </a>
                                 <div>
-                                    <iframe class="map"
-                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.8354345097515!2d144.95565101568054!3d-37.81731417975157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0x5045675218ce7e33!2sGroom%27s%20House!5e0!3m2!1sen!2s!4v1600871758580!5m2!1sen!2s"
-                                        allowfullscreen="" loading="lazy"></iframe>
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d884.8648576924388!2d106.43050377109718!3d21.04447595999833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313578a82d4140dd%3A0xb5912800bd7eadee!2zTuG7mWkgSOG7o3AsIEzhu4UgTmluaCwgS2luaCBNw7RuLCBI4bqjaSBExrDGoW5nLCBWaeG7h3QgTmFt!5e1!3m2!1svi!2s!4v1739456736010!5m2!1svi!2s"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                                 </div>
                             </div>
                         </div>
@@ -1020,9 +1029,9 @@
         </div>
     </div>
 
-    <div class="container mt-5 justify-content-center formacpect">
+    <div class="container mt-5 justify-content-center formacpect" style="font-family: 'SVN-Nusrat';">
         <div class="rsvp-container col-md-6 col-12">
-            <h3 class="text-center fw-bold">Gửi lời chúc tới đôi uyên ương:</h3>
+            <h3 class="text-center fw-bold" style="font-size:20px">❤️❤️ Gửi Lời Chúc Tới Dâu Rể ❤️❤️</h3>
 
             <div id="rsvpForm">
                 <div class="mb-3">
@@ -1033,14 +1042,14 @@
                 <button onclick="sendMessage()" class="btn btn-rsvp">Gửi lời yêu thương</button>
             </div>
         </div>
-        <div class="col-md-6 col-12">
+        <div class="col-md-6 col-12 " id="gift-message">
             <h3>Lời chúc đã nhận:</h3>
             <div id="messagesList"></div>
         </div>
     </div>
 
 
-    <div class="container gift-section mt-5">
+    <div class="container gift-section mt-5" style="font-family: 'SVN-Nusrat';">
         <h2 class="gift-title">❤️❤️❤️ Gửi Yêu Thương Dâu Rể ❤️❤️❤️</h2>
         <p class="gift-subtitle">Cảm ơn bạn vì đã trở thành một phần trong ngày trọng đại của chúng tôi</p>
 
@@ -1048,21 +1057,21 @@
             <div class="col-md-4 col-12 p-0 bride">
                 <h3>Cô Dâu</h3>
                 <p class="account-info"><strong>Tên tài khoản:</strong> Đinh Thị Minh Hằng</p>
-                <p class="account-info"><strong>STK:</strong> 123456...</p>
-                <p class="account-info"><strong>MB Bank</strong></p>
+                <p class="account-info"><strong>STK:</strong> 796789689</p>
+                <p class="account-info"><strong>VIB</strong></p>
                 <div class="qr-code">
-                    <img src="./img/anhqrduy.jpg" alt="QR Code Cô Dâu">
+                    <img src="./img/anhqrhang.jpg" alt="QR Code Cô Dâu">
                 </div>
             </div>
 
             <div class="col-md-4 col-12 p-0 couple-photo">
-                <img src="./img/anhnen.jpg" alt="Cặp đôi">
+                <img src="./img/anhnha.jpg" alt="Cặp đôi">
             </div>
 
             <div class="col-md-4 col-12 p-0 groom">
                 <h3>Chú Rể</h3>
                 <p class="account-info"><strong>Tên tài khoản:</strong> Hoàng Văn Duy</p>
-                <p class="account-info"><strong>STK:</strong> 1234567890</p>
+                <p class="account-info"><strong>STK:</strong> 0793245728</p>
                 <p class="account-info"><strong>MB Bank</strong></p>
                 <div class="qr-code">
                     <img src="./img/anhqrduy.jpg" alt="QR Code Chú Rể">
@@ -1076,7 +1085,7 @@
     justify-content: center;
     align-items: center;">
         <div class="background-image-footer"></div>
-        <div class="container text-center">
+        <div class="container text-center" style="color: #A00826;">
             <h1 class="text-center mt-4 p-3" style="color: #A00826; font-size:40px">Hoàng Duy & Minh Hằng</h1>
             <h2 class="mb-4">Thank You !</h2>
             <p>Sự hiện diện của quý vị là niềm vui và vinh hạnh cho gia đình chúng tôi, Chân thành cám ơn !</p>
@@ -1273,6 +1282,13 @@
             });
        // Tải danh sách lời chúc khi mở trang
        loadMessages();
+        let activeTab = type == 2 ? "nhatrai-tab" : "nhagai-tab";
+    
+        // Kích hoạt tab bằng Bootstrap API
+        let tab = document.getElementById(activeTab);
+        console.log("test1234",tab);
+        tab.click();
+    
         });
 
         function playAudio() {
