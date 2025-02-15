@@ -1109,7 +1109,22 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
     <script>
-        let isPlayed = false; 
+        let isPlayed = false;
+
+    function playAudio() {
+        let audio = document.getElementById("song");
+        
+        if (!isPlayed) {
+            audio.play().then(() => {
+                isPlayed = true;
+                console.log("Nhạc đang phát");
+            }).catch(error => {
+                console.log("Lỗi phát nhạc: ", error);
+            });
+        }
+    }
+    window.addEventListener("scroll", playAudio);
+    window.addEventListener("touchstart", playAudio); 
         var song= document.getElementById("song");
         const urlParams = new URLSearchParams(window.location.search);
         const type = urlParams.get('type'); 
@@ -1277,17 +1292,7 @@
                 document.getElementById("countdown").innerHTML = "Sự kiện đã diễn ra!";
             }
         }, 1000);
-        window.addEventListener("scroll", function () {
-            let audio = document.getElementById("song");
-            
-            if (!isPlayed) { // Chỉ phát nhạc 1 lần khi cuộn xuống lần đầu
-                audio.play().then(() => {
-                    isPlayed = true; // Đánh dấu đã phát nhạc
-                    console.log("Nhạc đang phát");
-                }).catch(error => {
-                    console.log("Lỗi phát nhạc: ", error);
-                });
-            }})
+   
         document.addEventListener('DOMContentLoaded', () => {
             AOS.init();
             const swiper = new Swiper('.swiper-container', {
