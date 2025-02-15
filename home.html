@@ -1097,11 +1097,20 @@
             <p>Chúng tôi rất vui mừng khi sắp bước sang một chương mới của cuộc đời. Sự hiện diện của quý khách trong ngày trọng đại này sẽ là niềm vinh hạnh lớn đối với vợ chồng tôi. Rất mong quý khách sắp xếp thời gian đến chung vui và chúc phúc cùng gia đình tôi. Xin cảm ơn mọi người rất nhiều!</p>
         </div>
     </div>
+    <div id="audio-container">
+        <!-- Audio element that automatically plays and loops the specified audio file -->
+        <audio id="song" autoplay loop>
+          <source src="audio/be-mine.mp4" type="audio/mp3" />
+        </audio>
+       
+      </div>
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
     <script>
+        let isPlayed = false; 
+        var song= document.getElementById("song");
         const urlParams = new URLSearchParams(window.location.search);
         const type = urlParams.get('type'); 
         const nameUrl = urlParams.get('name'); 
@@ -1268,6 +1277,17 @@
                 document.getElementById("countdown").innerHTML = "Sự kiện đã diễn ra!";
             }
         }, 1000);
+        window.addEventListener("scroll", function () {
+            let audio = document.getElementById("song");
+            
+            if (!isPlayed) { // Chỉ phát nhạc 1 lần khi cuộn xuống lần đầu
+                audio.play().then(() => {
+                    isPlayed = true; // Đánh dấu đã phát nhạc
+                    console.log("Nhạc đang phát");
+                }).catch(error => {
+                    console.log("Lỗi phát nhạc: ", error);
+                });
+            }})
         document.addEventListener('DOMContentLoaded', () => {
             AOS.init();
             const swiper = new Swiper('.swiper-container', {
@@ -1286,6 +1306,7 @@
                 //clickable: true,
                 //},
             });
+           
        // Tải danh sách lời chúc khi mở trang
        loadMessages();
         let activeTab = type == 2 ? "nhatrai-tab" : "nhagai-tab";
@@ -1298,31 +1319,14 @@
         });
 
         function playAudio() {
+            console.log("test nè")
             song.volume = 0.1; // Set the audio volume to 10%
-            audioIconWrapper.style.display = "flex"; // Show the audio icon wrapper
             song.play(); // Start playing the audio
             isPlaying = true; // Update the state to indicate audio is playing
         }
 
-        // Toggle audio playback when the audio icon is clicked
-        audioIconWrapper.onclick = function () {
-            if (isPlaying) {
-                song.pause(); // Pause the audio if it is playing
-                audioIcon.classList.remove("bi-disc"); // Remove disc icon
-                audioIcon.classList.add("bi-pause-circle"); // Show pause icon
-            } else {
-                song.play(); // Play the audio if it is paused
-                audioIcon.classList.add("bi-disc"); // Show disc icon
-                audioIcon.classList.remove("bi-pause-circle"); // Remove pause icon
-            }
-
-            isPlaying = !isPlaying; // Toggle the playing state
-        };
-        function enableScroll() {
-            window.onscroll = function () { }; // Unlock scrolling
-            rootElement.style.scrollBehavior = "smooth"; // Re-enable smooth scrolling
-            playAudio(); // Start playing the audio when scrolling is enabled
-        }
+       
+        
         function sendMessage() {
             let message = document.getElementById("message").value;
             if (!message) {
